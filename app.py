@@ -47,5 +47,52 @@ col_left, col_right = st.columns([1.4, 1])
 
 with col_left:
     # Makine Görseli (Placeholder ama karanlık temaya uygun)
-    st.image
+    st.image("https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&q=80&w=1200", 
+             caption="DizaynX Series | Industrial Grade Build")
+
+with col_right:
+    st.markdown('<div class="card-container">', unsafe_allow_html=True)
+    st.write("### Üretim Hattı Performansı")
+    st.write("Kablo ve boru hatlarında su kalıntısını %99.9 oranında temizleyen yüksek hızlı hava türbülansı teknolojisi.")
     
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Teknik Veri Grid
+    v1, v2 = st.columns(2)
+    with v1:
+        st.markdown('<span class="spec-value">300</span><span class="spec-unit">L/MIN AIR FLOW</span>', unsafe_allow_html=True)
+    with v2:
+        st.markdown('<span class="spec-value">6.0</span><span class="spec-unit">OPERATING BAR</span>', unsafe_allow_html=True)
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    v3, v4 = st.columns(2)
+    with v3:
+        st.markdown('<span class="spec-value">10</span><span class="spec-unit">MAX DIAMETER (MM)</span>', unsafe_allow_html=True)
+    with v4:
+        st.markdown('<span class="spec-value">AISI</span><span class="spec-unit">STAINLESS STEEL</span>', unsafe_allow_html=True)
+    
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.button("İletişime Geç & Teklif Al", use_container_width=True)
+
+# --- GLOBAL CONTACT ---
+st.markdown("<br><br><br>", unsafe_allow_html=True)
+st.write("---")
+c1, c2, c3 = st.columns(3)
+
+with c1:
+    st.caption("GLOBAL SALES MANAGER")
+    st.write("**Mr. Göksel YILMAZ**")
+
+with c2:
+    st.caption("OFFICE & PRODUCTION")
+    st.write("Ergene Vadisi, Çorlu / Tekirdağ")
+
+with c3:
+    st.caption("EMAIL ENQUIRIES")
+    st.write("goksel@dizaynx.com.tr")
+
+st.markdown('<div class="footer">DIZAYNX © 2026 | ALL RIGHTS RESERVED.</div>', unsafe_allow_html=True)    
+
