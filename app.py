@@ -1,72 +1,49 @@
 import streamlit as st
 
-# 1. Sayfa Temelleri
-st.set_page_config(page_title="DizaynX | Endüstriyel Çözümler", page_icon="⚡", layout="wide")
+# Sayfa ayarlarını en üst seviyeye çekiyoruz
+st.set_page_config(page_title="DizaynX | Advanced Drying Systems", layout="wide")
 
-# 2. Kurumsal Stil (CSS) - Logonu ve Tasarımı Buradan Düzenliyoruz
+# Kurumsal ve Modern CSS (Özel Tasarım)
 st.markdown("""
     <style>
-    .main { background-color: #0e1117; }
-    .title-text { font-size: 48px; font-weight: 800; color: #00fbff; letter-spacing: -1px; }
-    .section-card { background-color: #1a1c24; padding: 25px; border-radius: 12px; border-left: 5px solid #00fbff; }
+    /* Arka plan ve yazı tipi */
+    .stApp { background-color: #050505; color: #e0e0e0; font-family: 'Inter', sans-serif; }
+    
+    /* Üst Bar Tasarımı */
+    .nav-bar { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #222; margin-bottom: 50px; }
+    .logo-text { font-size: 28px; font-weight: 900; letter-spacing: 2px; color: #fff; }
+    .logo-x { color: #00e5ff; }
+    
+    /* Hero Section (Giriş) */
+    .hero-container { text-align: center; padding: 60px 0; }
+    .hero-h1 { font-size: 64px; font-weight: 800; background: linear-gradient(to right, #fff, #888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
+    .hero-p { font-size: 20px; color: #888; letter-spacing: 1px; }
+
+    /* Teknik Kart Tasarımı */
+    .spec-card { background: #111; border: 1px solid #222; padding: 30px; border-radius: 4px; transition: 0.3s; }
+    .spec-card:hover { border-color: #00e5ff; background: #151515; }
+    .spec-val { font-size: 32px; font-weight: 700; color: #00e5ff; display: block; }
+    .spec-label { font-size: 12px; text-transform: uppercase; color: #666; letter-spacing: 2px; }
+
+    /* Footer */
+    .footer { margin-top: 100px; padding: 40px; border-top: 1px solid #222; text-align: center; color: #444; font-size: 13px; }
     </style>
     """, unsafe_allow_html=True)
 
-# 3. Logo ve Başlık (Artık Sırıtmıyor!)
-col1, col2 = st.columns([1, 5])
-with col1:
-    st.markdown("""
-        <svg width="70" height="70" viewBox="0 0 100 100">
-            <rect width="100" height="100" rx="20" fill="#00fbff" fill-opacity="0.1"/>
-            <path d="M30 30L70 70M70 30L30 70" stroke="#00fbff" stroke-width="10" stroke-linecap="round"/>
-        </svg>
-    """, unsafe_allow_html=True)
-with col2:
-    st.markdown("<h1 class='title-text'>DIZAYNX</h1>", unsafe_allow_html=True)
-    st.write("### Endüstriyel Kablo Kurutma Sistemleri")
-
-st.divider()
-
-# 4. Ürün Tanıtımı (CDA-0110-06C)
-st.header("📦 Öne Çıkan Ürün")
-c_img, c_info = st.columns([1.5, 1])
-
-with c_img:
-    # Yer tutucu görsel (Gerçek makine resmini daha sonra buraya ekleyebiliriz)
-    st.image("https://via.placeholder.com/800x450/1a1c24/00fbff?text=CDA-0110-06C+Dryer", 
-             caption="CDA-0110-06C Endüstriyel Ünite")
-
-with c_info:
-    st.markdown("""
-    <div class="section-card">
-        <h4>Teknik Özellikler</h4>
-        <ul>
-            <li><b>Uygulama:</b> 0 - 10 mm Kablo Çapı</li>
-            <li><b>Hava Tüketimi:</b> 300 L/dak (@6 Bar)</li>
-            <li><b>Malzeme:</b> Paslanmaz Çelik & Alüminyum</li>
-            <li><b>Verimlilik:</b> %99 Nem Arındırma</li>
-        </ul>
+# --- NAV BAR ---
+st.markdown("""
+    <div class="nav-bar">
+        <div class="logo-text">DIZAYN<span class="logo-x">X</span></div>
+        <div style="color: #666; font-size: 14px;">PRECISION ENGINEERING</div>
     </div>
     """, unsafe_allow_html=True)
-    st.write("")
-    st.button("📄 Teknik Veri Sayfasını İndir")
 
-st.divider()
+# --- HERO SECTION ---
+st.markdown("""
+    <div class="hero-container">
+        <p class="hero-p">CDA SERIES</p>
+        <h1 class="hero-h1">Ultra-High Efficiency<br>Cable Drying Systems</h1>
+    </div>
+    """, unsafe_allow_html=True)
 
-# 5. İletişim Bilgileri (Göksel Bey'in Bilgileri)
-st.header("📞 İletişim & Destek")
-k1, k2, k3 = st.columns(3)
-
-with k1:
-    st.info("**Yetkili:** Mr. Göksel YILMAZ")
-    st.write("Global Satış Müdürü")
-
-with k2:
-    st.success("**E-Posta:**")
-    st.write("goksel@dizaynx.com.tr")
-
-with k3:
-    st.warning("**Adres:**")
-    st.write("Ergene Vadisi, Çorlu / Tekirdağ")
-
-st.markdown("<br><p style='text-align: center; color: #555;'>© 2026 DizaynX | Çorlu, Türkiye</p>", unsafe_allow_html=True)
+# --- ANA GÖRSEL VE TE
