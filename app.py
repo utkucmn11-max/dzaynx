@@ -46,4 +46,52 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
-# --- ANA GÖRSEL VE TE
+# --- ANA GÖRSEL VE TEKNİK VERİLER ---
+col1, col2 = st.columns([1.5, 1])
+
+with col1:
+    # Profesyonel bir ürün görseli yer tutucusu (Kendi makine resmini buraya koyacağız)
+    st.image("https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000", 
+             caption="CDA-0110-06C Next-Gen Dryer")
+
+with col2:
+    st.write("### Technical Mastery")
+    st.write("Hava tüketimini optimize eden, patentli türbülans teknolojisi ile kablo yüzeyindeki nemi mikron seviyesinde temizler.")
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Teknik Veri Kartları
+    c_a, c_b = st.columns(2)
+    with c_a:
+        st.markdown('<div class="spec-card"><span class="spec-val">0-10</span><span class="spec-label">MM ÇAP</span></div>', unsafe_allow_html=True)
+    with c_b:
+        st.markdown('<div class="spec-card"><span class="spec-val">300</span><span class="spec-label">L/MIN HAVA</span></div>', unsafe_allow_html=True)
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    c_c, c_d = st.columns(2)
+    with c_c:
+        st.markdown('<div class="spec-card"><span class="spec-val">6.0</span><span class="spec-label">BAR BASINÇ</span></div>', unsafe_allow_html=True)
+    with c_d:
+        st.markdown('<div class="spec-card"><span class="spec-val">IP67</span><span class="spec-label">KORUMA</span></div>', unsafe_allow_html=True)
+
+st.markdown("<br><br>", unsafe_allow_html=True)
+
+# --- İLETİŞİM PANELİ ---
+st.write("---")
+st.write("### Global Inquiry")
+ic1, ic2, ic3 = st.columns(3)
+
+with ic1:
+    st.caption("SALES DIRECTOR")
+    st.write("**Mr. Göksel YILMAZ**")
+
+with ic2:
+    st.caption("HEADQUARTERS")
+    st.write("Ergene Vadisi, Tekirdağ, TR")
+
+with ic3:
+    st.caption("DIRECT CONTACT")
+    st.write("goksel@dizaynx.com.tr")
+
+st.markdown('<div class="footer">© 2026 DIZAYNX INDUSTRIAL SOLUTIONS. BUİLT FOR PERFORMANCE.</div>', unsafe_allow_html=True)
