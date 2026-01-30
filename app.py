@@ -94,5 +94,4 @@ with c3:
     st.caption("EMAIL ENQUIRIES")
     st.write("goksel@dizaynx.com.tr")
 
-st.markdown('<div class="footer">DIZAYNX © 2026 | ALL RIGHTS RESERVED.</div>', unsafe_allow_html=True)    
-
+st.markdown('<div class="footer">DIZAYNX © 2026 | ALL RIGHTS RESERVED.</div>', unsafe_allow_html=True)
