@@ -1,97 +1,105 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
-# Sayfa Genişliği ve Tarayıcı Başlığı
-st.set_page_config(page_title="DizaynX Industrial | Precision Cooling", layout="wide", initial_sidebar_state="collapsed")
+# Sayfa Genişlik Ayarları
+st.set_page_config(page_title="DizaynX | Kurumsal", layout="wide", initial_sidebar_state="collapsed")
 
-# --- KURUMSAL STİL (CSS) ---
-st.markdown("""
+# Gönderdiğin HTML Kodunu Python Değişkenine Alıyoruz
+html_template = """
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
     <style>
-    /* Karanlık ve Premium Arka Plan */
-    .stApp { background-color: #080808; color: #ffffff; font-family: 'Inter', sans-serif; }
-    
-    /* Navigasyon Barı */
-    .nav-bar { display: flex; justify-content: space-between; align-items: center; padding: 25px 0; border-bottom: 1px solid #1a1a1a; margin-bottom: 40px; }
-    .logo-text { font-size: 30px; font-weight: 900; letter-spacing: 3px; color: #fff; }
-    .logo-x { color: #00d4ff; text-shadow: 0 0 15px rgba(0,212,255,0.4); }
-    
-    /* Hero Başlıkları */
-    .hero-label { font-size: 14px; letter-spacing: 5px; color: #666; text-transform: uppercase; margin-bottom: 10px; }
-    .hero-title { font-size: 72px; font-weight: 800; background: linear-gradient(180deg, #fff 0%, #444 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.1; }
-
-    /* Teknik Bilgi Kartları */
-    .card-container { background: #111111; border: 1px solid #1a1a1a; padding: 40px; border-radius: 2px; }
-    .spec-value { font-size: 42px; font-weight: 700; color: #00d4ff; line-height: 1; }
-    .spec-unit { font-size: 12px; color: #444; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; display: block; }
-    
-    /* Footer */
-    .footer { margin-top: 80px; padding: 40px 0; border-top: 1px solid #111; color: #333; font-size: 12px; letter-spacing: 1px; text-align: center; }
+        body { font-family: 'Lato', sans-serif; background-color: #1a1a1a; color: #e0e0e0; overflow-x: hidden; }
+        .text-neon-blue { color: #00e5ff; }
+        .bg-neon-blue { background-color: #00e5ff; }
+        .border-neon-blue { border-color: #00e5ff; }
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+            url('https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?q=80&w=2000');
+            background-size: cover; background-position: center;
+        }
     </style>
-    """, unsafe_allow_html=True)
+</head>
+<body>
+    <header class="bg-[#1a1a1a] shadow-lg sticky top-0 z-50 border-b border-[#333]">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-2xl font-bold text-white uppercase tracking-tighter">Dizayn<span class="text-neon-blue">X</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8 items-center text-xs font-bold tracking-widest">
+                <a href="#" class="hover:text-neon-blue transition">ANA SAYFA</a>
+                <a href="#products" class="hover:text-neon-blue transition">ÜRÜNLER</a>
+                <a href="#contact" class="hover:text-neon-blue transition">İLETİŞİM</a>
+            </div>
+        </nav>
+    </header>
 
-# --- NAV BAR ---
-st.markdown("""
-    <div class="nav-bar">
-        <div class="logo-text">DIZAYN<span class="logo-x">X</span></div>
-        <div style="font-size: 12px; color: #555; letter-spacing: 2px;">ENGINEERED FOR EXCELLENCE</div>
-    </div>
-    """, unsafe_allow_html=True)
+    <section class="hero-section h-screen flex items-center justify-center text-center px-6">
+        <div class="max-w-4xl">
+            <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 uppercase italic tracking-tighter">
+                Kusursuz <span class="text-neon-blue">Kuruluk.</span>
+            </h1>
+            <p class="text-xl text-gray-400 mb-10 tracking-widest uppercase">Endüstriyel Kablo Kurutma Teknolojileri</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#products" class="px-10 py-4 bg-neon-blue text-black font-black uppercase transition hover:scale-105">Ürünleri İncele</a>
+            </div>
+        </div>
+    </section>
 
-# --- HERO SECTION ---
-st.markdown('<p class="hero-label">Technical Precision</p>', unsafe_allow_html=True)
-st.markdown('<h1 class="hero-title">CDA-0110-06C<br>Air Drying Solutions</h1>', unsafe_allow_html=True)
+    <section id="products" class="py-20 bg-[#121212] px-6">
+        <div class="container mx-auto text-center mb-16">
+            <h2 class="text-4xl font-bold text-white uppercase">Mühendislik <span class="text-neon-blue">Harikası</span></h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-10">
+            <div class="bg-[#1a1a1a] border border-[#333] hover:border-neon-blue transition p-2">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800" class="w-full grayscale hover:grayscale-0 transition">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white">CDA-0110-06C</h3>
+                    <p class="text-gray-500 text-sm mt-2">0-10mm çaplı hatlar için ultra verimli kurutma.</p>
+                </div>
+            </div>
+            <div class="bg-[#1a1a1a] border border-[#333] hover:border-neon-blue transition p-2">
+                <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800" class="w-full grayscale hover:grayscale-0 transition">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white">CDA-0500-08B</h3>
+                    <p class="text-gray-500 text-sm mt-2">30-80mm kılıf hatları için yüksek performans.</p>
+                </div>
+            </div>
+            <div class="bg-[#1a1a1a] border border-[#333] hover:border-neon-blue transition p-2">
+                <img src="https://images.unsplash.com/photo-1565608087341-404b254586ce?q=80&w=800" class="w-full grayscale hover:grayscale-0 transition">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white">Özel Çözümler</h3>
+                    <p class="text-gray-500 text-sm mt-2">İhtiyaca özel endüstriyel tasarımlar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-st.markdown("<br><br>", unsafe_allow_html=True)
+    <section id="contact" class="py-20 bg-[#1a1a1a] border-t border-[#333] px-6 text-center">
+        <h2 class="text-3xl font-bold mb-10 uppercase tracking-widest">Global İletişim</h2>
+        <div class="grid md:grid-cols-3 gap-8 text-sm">
+            <div>
+                <p class="text-gray-500 uppercase">Yetkili</p>
+                <p class="font-bold">Göksel YILMAZ</p>
+            </div>
+            <div>
+                <p class="text-gray-500 uppercase">E-Posta</p>
+                <p class="font-bold text-neon-blue">goksel@dizaynx.com.tr</p>
+            </div>
+            <div>
+                <p class="text-gray-500 uppercase">Lokasyon</p>
+                <p class="font-bold text-white">Çorlu / Tekirdağ</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+"""
 
-# --- PRODUCT DISPLAY ---
-col_left, col_right = st.columns([1.4, 1])
-
-with col_left:
-    # Makine Görseli (Placeholder ama karanlık temaya uygun)
-    st.image("https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&q=80&w=1200", 
-             caption="DizaynX Series | Industrial Grade Build")
-
-with col_right:
-    st.markdown('<div class="card-container">', unsafe_allow_html=True)
-    st.write("### Üretim Hattı Performansı")
-    st.write("Kablo ve boru hatlarında su kalıntısını %99.9 oranında temizleyen yüksek hızlı hava türbülansı teknolojisi.")
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    # Teknik Veri Grid
-    v1, v2 = st.columns(2)
-    with v1:
-        st.markdown('<span class="spec-value">300</span><span class="spec-unit">L/MIN AIR FLOW</span>', unsafe_allow_html=True)
-    with v2:
-        st.markdown('<span class="spec-value">6.0</span><span class="spec-unit">OPERATING BAR</span>', unsafe_allow_html=True)
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    v3, v4 = st.columns(2)
-    with v3:
-        st.markdown('<span class="spec-value">10</span><span class="spec-unit">MAX DIAMETER (MM)</span>', unsafe_allow_html=True)
-    with v4:
-        st.markdown('<span class="spec-value">AISI</span><span class="spec-unit">STAINLESS STEEL</span>', unsafe_allow_html=True)
-    
-    st.markdown('</div>', unsafe_allow_html=True)
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.button("İletişime Geç & Teklif Al", use_container_width=True)
-
-# --- GLOBAL CONTACT ---
-st.markdown("<br><br><br>", unsafe_allow_html=True)
-st.write("---")
-c1, c2, c3 = st.columns(3)
-
-with c1:
-    st.caption("GLOBAL SALES MANAGER")
-    st.write("**Mr. Göksel YILMAZ**")
-
-with c2:
-    st.caption("OFFICE & PRODUCTION")
-    st.write("Ergene Vadisi, Çorlu / Tekirdağ")
-
-with c3:
-    st.caption("EMAIL ENQUIRIES")
-    st.write("goksel@dizaynx.com.tr")
-
-st.markdown('<div class="footer">DIZAYNX © 2026 | ALL RIGHTS RESERVED.</div>', unsafe_allow_html=True)
+# HTML'i Streamlit Ekranına Basıyoruz
+components.html(html_template, height=2500, scrolling=False)
